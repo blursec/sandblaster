@@ -11,22 +11,27 @@ fn config_from_args() -> Config {
         .version(crate_version!())
         .author(crate_authors!())
         .about("Todo : about section")
-        .arg(Arg::with_name("url")
-            .short("u")
-            .long("url")
-            .value_name("URL")
-            .help("todo set url")
-            .takes_value(true))
-        .arg(Arg::with_name("file")
-            .short("f")
-            .long("file")
-            .value_name("FILE")
-            .help("todo set url")
-            .takes_value(true))
+        .arg(
+            Arg::with_name("url")
+                .short("u")
+                .long("url")
+                .value_name("URL")
+                .help("todo set url")
+                .takes_value(true),
+        )
+        .arg(
+            Arg::with_name("file")
+                .short("f")
+                .long("file")
+                .value_name("FILE")
+                .help("todo set url")
+                .takes_value(true),
+        )
         .get_matches();
     Config {
         url: matches.value_of("url").unwrap().to_string(),
-        filename: matches.value_of("file").unwrap().to_string() }
+        filename: matches.value_of("file").unwrap().to_string(),
+    }
 }
 
 fn main() {
